@@ -15,21 +15,33 @@ timer_items.forEach(timer_item => {
     let input = timer_item.querySelector('.timer-item__input')
     console.log(timer_item);
     up.addEventListener('click', () => {
-        if (parseInt(input.value)<9){
-            input.value = '0' + (parseInt(input.value)+1)
-        } else if (parseInt(input.value)===59) {
-            input.value = '00'
-        } else {
-            input.value = parseInt(input.value)+1
-        }
+        input.value = increaseTimerItem(input)
     })
     down.addEventListener('click', () => {
-        if (parseInt(input.value) == 0) {
-            input.value = 59
-        } else if (parseInt(input.value) < 11) {
-            input.value = '0' + (parseInt(input.value)-1)
-        } else {
-            input.value = parseInt(input.value)-1
-        }
+        input.value = decreaseTimerItem(input)
     })
 });
+
+const increaseTimerItem = (item) => {
+    value = item.value
+    if (parseInt(value)<9){
+        value = '0' + (parseInt(value)+1)
+    } else if (parseInt(value)===59) {
+        value = '00'
+    } else {
+        value = parseInt(value)+1
+    }
+    return value
+}
+
+const decreaseTimerItem = (item) => {
+    value = item.value
+    if (parseInt(value) == 0) {
+        value = 59
+    } else if (parseInt(value) < 11) {
+        value = '0' + (parseInt(value)-1)
+    } else {
+        value = parseInt(value)-1
+    }
+    return value
+}
