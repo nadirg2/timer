@@ -42,4 +42,113 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}   
+}
+
+/* ===== MAIN STYLES ===== */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    --color-white: #FFFFFF;
+    --color-gray: #AAAAAA;
+    --color-red: #FF0000;
+    --color-dark: #101010;
+    background-color: var(--color-dark);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ===== MENU ===== */
+
+.menu {
+    display: flex;
+    position: relative;
+    margin-bottom: 110px;
+}
+
+.menu-item {
+    width: 180px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray);
+    cursor: pointer;
+    margin: 0 40px 0 0;
+}
+
+.menu[data-active='stopwatch'] .menu-item_stopwatch {
+    color: var(--color-white);
+    cursor: default;
+}
+
+.menu[data-active='timer'] .menu-item_timer {
+    color: var(--color-white);
+    cursor: default;
+}
+
+.menu-item-underline {
+    width: 180px;
+    height: 2px;
+    background-color: var(--color-white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: .2s ease-in;
+}
+
+.menu[data-active='stopwatch'] .menu-item-underline {
+    left: 220px;
+}
+
+/* ===== CONTENT ===== */
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.colon {
+    font-size: 42px;
+    line-height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin: 0 2px;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-item__input {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 49px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    width: 49px;
+    height: 49px;
+    background-color: transparent;
+    border: unset;
+    color: #FFFFFF;
+}
+
+.timer-item__input:focus{
+    outline: none;
+}

@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
     <title>Timer || by nadir_gg</title>
   </head>
   <body>
-    <div class="menu">
-      <div class="menu-item">Timer</div>
-      <div class="menu-item">Stopwatch</div>
+    <div class="menu" data-active="timer">
+      <div data-name='timer' class="menu-item menu-item_timer">Timer</div>
+      <div data-name='stopwatch' class="menu-item menu-item_stopwatch">Stopwatch</div>
+      <div class="menu-item-underline"></div>
     </div>
     <div class="content">
       <div class="timer">
         <div class="timer-item">
           <svg
-            class="timer-item__down"
+            class="timer-item__up"
             width="19"
             height="17"
             viewBox="0 0 19 17"
@@ -28,7 +31,7 @@
               fill="#888888"
             />
           </svg>
-          <div class="timer-item__input"></div>
+          <input maxlength='2' type="text" value="00" class="timer-item__input"></input>
           <svg
             class="timer-item__down"
             width="19"
@@ -43,9 +46,10 @@
             />
           </svg>
         </div>
+        <div class="colon">:</div>
         <div class="timer-item">
           <svg
-            class="timer-item__down"
+            class="timer-item__up"
             width="19"
             height="17"
             viewBox="0 0 19 17"
@@ -57,7 +61,7 @@
               fill="#888888"
             />
           </svg>
-          <div class="timer-item__input"></div>
+          <input maxlength='2' type="text" value="00" class="timer-item__input"></input>
           <svg
             class="timer-item__down"
             width="19"
@@ -72,9 +76,10 @@
             />
           </svg>
         </div>
+        <div class="colon">:</div>
         <div class="timer-item">
           <svg
-            class="timer-item__down"
+            class="timer-item__up"
             width="19"
             height="17"
             viewBox="0 0 19 17"
@@ -86,7 +91,7 @@
               fill="#888888"
             />
           </svg>
-          <div class="timer-item__input"></div>
+          <input maxlength='2' type="text" value="00" class="timer-item__input"></input>
           <svg
             class="timer-item__down"
             width="19"
@@ -102,7 +107,8 @@
           </svg>
         </div>
       </div>
-      <div class="stopwatch_hidden"></div>
+      <div class="stopwatch stopwatch_hidden"></div>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
