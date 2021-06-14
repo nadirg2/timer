@@ -84,12 +84,12 @@ body {
     margin: 0 40px 0 0;
 }
 
-.menu[data-active='stopwatch'] .menu-item_stopwatch {
+.content[data-active='stopwatch'] .menu-item_stopwatch {
     color: var(--color-white);
     cursor: default;
 }
 
-.menu[data-active='timer'] .menu-item_timer {
+.content[data-active='timer'] .menu-item_timer {
     color: var(--color-white);
     cursor: default;
 }
@@ -104,11 +104,18 @@ body {
     transition: .2s ease-in;
 }
 
-.menu[data-active='stopwatch'] .menu-item-underline {
+.content[data-active='stopwatch'] .menu-item-underline {
     left: 220px;
 }
 
 /* ===== CONTENT ===== */
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .timer {
     display: flex;
@@ -175,9 +182,32 @@ body {
     -moz-transition: .15s ease-in;
     -ms-transition: .15s ease-in;
     -o-transition: .15s ease-in;
+    display: none;
 }
 
 .button:hover {
     color: var(--color-dark);
     background-color: var(--color-white);
+}
+
+.button_stop-timer {
+    border-color: var(--color-red);
+    color: var(--color-red);
+}
+
+.button_stop-timer:hover {
+    background-color: var(--color-red);
+    color: var(--color-dark);
+}
+
+.content[data-active='timer'][data-state='stop'] .stop-collection {
+    display: flex;
+}
+
+.content[data-active='timer'][data-state='start'] .start-collection {
+    display: flex;
+}
+
+.content[data-active='timer'][data-state='pause'] .pause-collection {
+    display: flex;
 }

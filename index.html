@@ -10,12 +10,12 @@
     <title>Timer || by nadir_gg</title>
   </head>
   <body>
-    <div class="menu" data-active="timer">
-      <div data-name='timer' class="menu-item menu-item_timer">Timer</div>
-      <div data-name='stopwatch' class="menu-item menu-item_stopwatch">Stopwatch</div>
-      <div class="menu-item-underline"></div>
-    </div>
-    <div class="content">
+    <div class="content" data-active="timer" data-state='stop'>
+      <div class="menu">
+        <div data-name='timer' class="menu-item menu-item_timer">Timer</div>
+        <div data-name='stopwatch' class="menu-item menu-item_stopwatch">Stopwatch</div>
+        <div class="menu-item-underline"></div>
+      </div>
       <div class="timer">
         <div class="timer-item">
           <svg
@@ -108,9 +108,20 @@
         </div>
       </div>
       <div class="stopwatch stopwatch_hidden"></div>
-    </div>
-    <div id='button_start-timer' class="button">
-      START
+      <div class="buttons">
+        <div id='start-button' class="button button_start-timer stop-collection">
+          START
+        </div>
+        <div id='stop-button' class="button button_stop-timer start-collection pause-collection">
+          STOP
+        </div>
+        <div id='pause-button' class="button button_pause-timer start-collection">
+          PAUSE
+        </div>
+        <div id='resume-button' class="button button_resume-timer pause-collection">
+          RESUME
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
