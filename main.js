@@ -15,10 +15,10 @@ var bar = new ProgressBar.Circle(document.getElementById('progress-bar'), {
 var content = document.querySelector(".content");
 var menu_items = document.querySelectorAll(".menu-item");
 menu_items.forEach((i) => {
-  i.addEventListener("click", () => {
-    const i_name = i.getAttribute("data-name");
-    content.setAttribute("data-active", i_name);
-  });
+    i.addEventListener("click", () => {
+        const i_name = i.getAttribute("data-name");
+        content.setAttribute("data-active", i_name);
+    });
 });
 
 
@@ -37,12 +37,12 @@ timer_items.forEach(timer_item => {
 
 const increaseTimerItem = (item) => {
     value = item.value
-    if (parseInt(value)<9){
-        value = '0' + (parseInt(value)+1)
-    } else if (parseInt(value)===59) {
+    if (parseInt(value) < 9) {
+        value = '0' + (parseInt(value) + 1)
+    } else if (parseInt(value) === 59) {
         value = '00'
     } else {
-        value = parseInt(value)+1
+        value = parseInt(value) + 1
     }
     return value
 }
@@ -52,9 +52,9 @@ const decreaseTimerItem = (item) => {
     if (parseInt(value) == 0) {
         value = 59
     } else if (parseInt(value) < 11) {
-        value = '0' + (parseInt(value)-1)
+        value = '0' + (parseInt(value) - 1)
     } else {
-        value = parseInt(value)-1
+        value = parseInt(value) - 1
     }
     return value
 }
@@ -64,21 +64,21 @@ const startTimer = () => {
     let ss = timer_items[2].querySelector('.timer-item__input')
     let mm = timer_items[1].querySelector('.timer-item__input')
     let hh = timer_items[0].querySelector('.timer-item__input')
-    if (hh.value=='00' && mm.value=='00' && ss.value=='00') {
+    if (hh.value == '00' && mm.value == '00' && ss.value == '00') {
         clearInterval(countdown_id)
         countdown_id = null
-    } else if (ss.value=='00' && mm.value=='00') {
+    } else if (ss.value == '00' && mm.value == '00') {
         ss.value = '59'
         mm.value = '59'
         hh.value = decreaseTimerItem(hh)
-    } else if (ss.value=='00') {
+    } else if (ss.value == '00') {
         mm.value = decreaseTimerItem(mm)
         ss.value = '59'
     } else {
         ss.value = decreaseTimerItem(ss)
     }
-    let start_time = parseInt(start_hh)*3600 + parseInt(start_mm)*60 + parseInt(start_ss)
-    let actual_time = parseInt(hh.value)*3600 + parseInt(mm.value)*60 + parseInt(ss.value)
+    let start_time = parseInt(start_hh) * 3600 + parseInt(start_mm) * 60 + parseInt(start_ss)
+    let actual_time = parseInt(hh.value) * 3600 + parseInt(mm.value) * 60 + parseInt(ss.value)
     let animation_status = (start_time - actual_time) / start_time
     bar.animate(animation_status);
 }
@@ -103,7 +103,7 @@ var stop_timer_button = document.querySelector('#stop-button')
 stop_timer_button.addEventListener('click', () => {
     clearInterval(countdown_id)
     let timer_items = document.querySelectorAll('.timer-item')
-    timer_items[2].querySelector('.timer-item__input').value = start_ss 
+    timer_items[2].querySelector('.timer-item__input').value = start_ss
     timer_items[1].querySelector('.timer-item__input').value = start_mm
     timer_items[0].querySelector('.timer-item__input').value = start_hh
     document.querySelector('.content').setAttribute('data-state', 'stop')
