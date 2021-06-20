@@ -3,6 +3,15 @@ var start_ss = null
 var start_mm = null
 var start_hh = null
 
+var bar = new ProgressBar.Circle(document.getElementById('progress-bar'), {
+    strokeWidth: 3,
+    duration: 100,
+    color: '#FFFFFF',
+    trailColor: '#AAAAAA',
+    trailWidth: 2,
+    svgStyle: null,
+});
+
 var content = document.querySelector(".content");
 var menu_items = document.querySelectorAll(".menu-item");
 menu_items.forEach((i) => {
@@ -68,6 +77,10 @@ const startTimer = () => {
     } else {
         ss.value = decreaseTimerItem(ss)
     }
+    let start_time = parseInt(start_hh)*3600 + parseInt(start_mm)*60 + parseInt(start_ss)
+    let actual_time = parseInt(hh.value)*3600 + parseInt(mm.value)*60 + parseInt(ss.value)
+    let animation_status = (start_time - actual_time) / start_time
+    bar.animate(animation_status);
 }
 
 var start_timer_button = document.querySelector('#start-button')

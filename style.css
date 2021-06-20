@@ -118,9 +118,23 @@ body {
 }
 
 .timer {
+    position: relative;
+    width: 291px;
+    height: 291px;
+}
+
+.timer__progress-bar {
+    width: 291px;
+    height: 291px;
+    inset: 0;
+}
+
+.timer__items {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
+    inset: 0;
 }
 
 .colon {
@@ -162,7 +176,7 @@ body {
 
 /* ===== BUTTON ===== */
 .button {
-    margin-top: 80px;
+    margin: 80px 25px 0;
     width: 190px;
     height: 65px;
     font-style: normal;
@@ -209,5 +223,9 @@ body {
 }
 
 .content[data-active='timer'][data-state='pause'] .pause-collection {
+    display: flex;
+}
+
+.buttons {
     display: flex;
 }
