@@ -113,8 +113,17 @@ body {
 .content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
+    height: 600px;
+}
+
+.content[data-active='timer'] .stopwatch {
+    display: none;
+}
+
+.content[data-active='stopwatch'] .timer {
+    display: none;
 }
 
 .timer {
@@ -129,11 +138,14 @@ body {
     inset: 0;
 }
 
-.timer__items {
-    position: absolute;
+.timer__items, .stopwatch__items {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.timer__items {
+    position: absolute;
     inset: 0;
 }
 
@@ -154,7 +166,7 @@ body {
     justify-content: center;
 }
 
-.timer-item__input {
+.timer-item__input, .stopwatch-item {
     font-style: normal;
     font-weight: normal;
     font-size: 42px;
@@ -170,8 +182,26 @@ body {
     color: var(--color-white);
 }
 
+.stopwatch-item {
+    font-size: 58px;
+    width: auto;
+    height: auto;
+}
+
+.content[data-active='stopwatch'] .colon {
+    margin: 0px 6px;
+}
+
 .timer-item__input:focus{
     outline: none;
+}
+
+.content[data-active='timer']:not([data-state='stop']) .timer-item__up {
+    opacity: 0;
+}
+
+.content[data-active='timer']:not([data-state='stop']) .timer-item__down {
+    opacity: 0;
 }
 
 /* ===== BUTTON ===== */
@@ -214,15 +244,15 @@ body {
     color: var(--color-dark);
 }
 
-.content[data-active='timer'][data-state='stop'] .stop-collection {
+.content[data-state='stop'] .stop-collection {
     display: flex;
 }
 
-.content[data-active='timer'][data-state='start'] .start-collection {
+.content[data-state='start'] .start-collection {
     display: flex;
 }
 
-.content[data-active='timer'][data-state='pause'] .pause-collection {
+.content[data-state='pause'] .pause-collection {
     display: flex;
 }
 
